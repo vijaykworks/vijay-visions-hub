@@ -4,7 +4,6 @@ import { motion } from 'framer-motion'
 export default function HeroProfile({ profile }) {
   if (!profile) return null
 
-  // Ensure name defaults to Vijay K if database profile has old name
   const name = profile.name && profile.name !== 'Vijay' && profile.name !== 'Vijay Kumar' ? profile.name : 'Vijay K'
 
   const socialLinks = [
@@ -66,7 +65,6 @@ export default function HeroProfile({ profile }) {
     }
   ].filter(s => Boolean(s.url))
 
-  // Simple, clean, easily readable bio text
   const bioText = profile.bio || 'Tech Creator & Reviewer • Curating top phones, gadgets, & accessories'
 
   return (
@@ -78,12 +76,13 @@ export default function HeroProfile({ profile }) {
     >
       {/* Centered Avatar Image */}
       <div className="relative mb-3 group">
+        <div className="absolute -inset-1 rounded-full bg-gradient-to-r from-cyan-400 via-blue-500 to-indigo-600 opacity-80 blur-sm animate-pulse" />
         <img
           src={profile.imageUrl || 'https://images.unsplash.com/photo-1534528741775-53994a69daeb?auto=format&fit=crop&w=400&q=80'}
           alt={name}
-          className="w-20 h-20 sm:w-24 sm:h-24 rounded-full object-cover shadow-md border-2 border-white"
+          className="relative w-20 h-20 sm:w-24 sm:h-24 rounded-full object-cover shadow-lg border-2 border-cyan-400/50 bg-slate-900"
         />
-        <div className="absolute bottom-0 right-0 w-5 h-5 bg-emerald-500 border-2 border-white rounded-full flex items-center justify-center shadow-sm" title="Verified Creator">
+        <div className="absolute bottom-0 right-0 w-5 h-5 bg-cyan-500 border-2 border-[#06080e] rounded-full flex items-center justify-center shadow-md" title="Verified Creator">
           <svg className="w-3 h-3 text-white" viewBox="0 0 24 24" fill="currentColor">
             <path d="M9 16.17L4.83 12l-1.42 1.41L9 19 21 7l-1.41-1.41z"/>
           </svg>
@@ -91,12 +90,12 @@ export default function HeroProfile({ profile }) {
       </div>
 
       {/* Creator Name */}
-      <h1 className="text-xl sm:text-2xl font-extrabold text-slate-900 tracking-tight font-heading flex items-center justify-center gap-1.5">
+      <h1 className="text-xl sm:text-2xl font-extrabold text-white tracking-tight font-heading flex items-center justify-center gap-1.5">
         {name}
       </h1>
 
-      {/* Simplified, Clean, Easily Readable Bio */}
-      <p className="text-xs sm:text-sm text-slate-600 font-medium mt-1.5 max-w-md leading-relaxed">
+      {/* Simplified Bio */}
+      <p className="text-xs sm:text-sm text-slate-300 font-medium mt-1.5 max-w-md leading-relaxed">
         {bioText}
       </p>
 
@@ -111,7 +110,7 @@ export default function HeroProfile({ profile }) {
             whileHover={{ scale: 1.15, y: -1 }}
             whileTap={{ scale: 0.95 }}
             aria-label={social.label}
-            className="w-8 h-8 sm:w-9 sm:h-9 rounded-full bg-white/80 hover:bg-white border border-slate-300/80 text-slate-700 hover:text-slate-900 flex items-center justify-center shadow-xs transition-all"
+            className="w-8 h-8 sm:w-9 sm:h-9 rounded-full bg-white/5 hover:bg-cyan-500/20 border border-cyan-500/30 text-cyan-300 hover:text-white flex items-center justify-center shadow-xs transition-all"
           >
             {social.icon}
           </motion.a>

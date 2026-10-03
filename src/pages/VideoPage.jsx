@@ -48,23 +48,23 @@ export default function VideoPage() {
   }
 
   return (
-    <div className="relative flex-1 min-h-screen bg-[#07080c] text-white w-full overflow-y-auto">
+    <div className="relative flex-1 min-h-screen bg-[#06080e] text-white w-full overflow-y-auto">
       <BackgroundMesh />
 
       <main className="relative z-10 max-w-7xl mx-auto w-full px-4 sm:px-6 lg:px-8 py-10">
-        <div className="mb-10 p-6 sm:p-8 rounded-3xl bg-white/[0.03] border border-white/10 backdrop-blur-xl">
+        <div className="mb-10 p-6 sm:p-8 rounded-3xl bg-[#0c101c]/90 border border-cyan-500/20 backdrop-blur-xl shadow-lg">
           <div className="flex items-center gap-3 mb-2">
-            <span className="px-3 py-1 rounded-full bg-indigo-500/10 border border-indigo-500/30 text-indigo-300 text-xs font-bold uppercase tracking-wider">
+            <span className="px-3 py-1 rounded-full bg-cyan-500/10 border border-cyan-500/30 text-cyan-300 text-xs font-bold uppercase tracking-wider">
               Video Showcase
             </span>
-            <Link to="/" className="text-xs text-gray-400 hover:text-white transition-colors underline">
+            <Link to="/" className="text-xs text-slate-400 hover:text-white transition-colors underline">
               ← Return Home
             </Link>
           </div>
           <h1 className="text-3xl sm:text-4xl font-extrabold text-white tracking-tight font-heading">
-            Featured Gear from: <span className="text-indigo-400">/{slug}</span>
+            Featured Gear from: <span className="text-cyan-400">/{slug}</span>
           </h1>
-          <p className="text-gray-400 text-sm mt-2">
+          <p className="text-slate-400 text-sm mt-2">
             Explore all products, setups, and gear featured in this video.
           </p>
         </div>
@@ -72,9 +72,9 @@ export default function VideoPage() {
         {loading ? (
           <SkeletonCard count={4} />
         ) : products.length === 0 ? (
-          <div className="p-12 text-center rounded-3xl bg-white/[0.02] border border-white/10 text-gray-400">
+          <div className="p-12 text-center rounded-3xl bg-[#0c101c]/80 border border-cyan-500/20 text-slate-400">
             <p className="text-lg font-bold text-white mb-2">No items featured for this video tag yet.</p>
-            <Link to="/" className="inline-block mt-4 px-6 py-3 rounded-2xl bg-indigo-600 hover:bg-indigo-500 text-white text-xs font-bold transition-all shadow-lg shadow-indigo-500/25">
+            <Link to="/" className="inline-block mt-4 px-6 py-3 rounded-2xl bg-gradient-to-r from-cyan-500 to-blue-600 hover:from-cyan-400 hover:to-blue-500 text-white text-xs font-bold transition-all shadow-lg shadow-cyan-500/25">
               Explore All Gear
             </Link>
           </div>

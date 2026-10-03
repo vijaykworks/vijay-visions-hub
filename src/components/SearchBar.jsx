@@ -23,7 +23,7 @@ export default function SearchBar({ searchQuery, setSearchQuery, totalResults })
     <div className="relative mb-5 w-full">
       <div className="relative flex items-center w-full">
         {/* Search Icon */}
-        <div className="absolute left-4 pointer-events-none text-slate-400">
+        <div className="absolute left-4 pointer-events-none text-cyan-400">
           <svg className="w-4 h-4 sm:w-5 sm:h-5" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round">
             <circle cx="11" cy="11" r="8"/>
             <line x1="21" y1="21" x2="16.65" y2="16.65"/>
@@ -37,7 +37,7 @@ export default function SearchBar({ searchQuery, setSearchQuery, totalResults })
           value={searchQuery}
           onChange={(e) => setSearchQuery(e.target.value)}
           placeholder="Search gear, gadgets, accessories..."
-          className="w-full pl-11 sm:pl-12 pr-24 sm:pr-28 py-3 sm:py-3.5 rounded-2xl bg-white/80 border border-slate-200 text-slate-900 placeholder-slate-400 focus:outline-none focus:border-orange-500 focus:bg-white focus:ring-4 focus:ring-orange-500/10 transition-all text-xs sm:text-sm font-semibold shadow-sm"
+          className="w-full pl-11 sm:pl-12 pr-24 sm:pr-28 py-3 sm:py-3.5 rounded-2xl bg-[#0d1220]/90 border border-cyan-500/25 text-white placeholder-slate-400 focus:outline-none focus:border-cyan-400 focus:bg-[#11172a] focus:ring-4 focus:ring-cyan-500/15 transition-all text-xs sm:text-sm font-semibold shadow-inner"
         />
 
         {/* Right Actions */}
@@ -49,7 +49,7 @@ export default function SearchBar({ searchQuery, setSearchQuery, totalResults })
                 animate={{ opacity: 1, scale: 1 }}
                 exit={{ opacity: 0, scale: 0.8 }}
                 onClick={() => setSearchQuery('')}
-                className="p-1 rounded-xl bg-slate-100 text-slate-500 hover:text-slate-900 hover:bg-slate-200 transition-all text-xs font-semibold"
+                className="p-1 rounded-xl bg-white/10 text-slate-300 hover:text-white hover:bg-white/20 transition-all text-xs font-semibold"
               >
                 <svg className="w-4 h-4" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5">
                   <line x1="18" y1="6" x2="6" y2="18"/>
@@ -57,14 +57,14 @@ export default function SearchBar({ searchQuery, setSearchQuery, totalResults })
                 </svg>
               </motion.button>
             ) : (
-              <span className="hidden sm:inline-flex items-center gap-1 px-2 py-0.5 rounded-lg bg-slate-100 border border-slate-200 text-[10px] font-mono text-slate-500">
+              <span className="hidden sm:inline-flex items-center gap-1 px-2 py-0.5 rounded-lg bg-white/5 border border-white/10 text-[10px] font-mono text-slate-400">
                 <kbd>Ctrl</kbd>+<kbd>K</kbd>
               </span>
             )}
           </AnimatePresence>
 
           {/* Results Badge */}
-          <span className="px-2.5 py-1 rounded-xl bg-orange-100 text-orange-700 text-xs font-extrabold border border-orange-200">
+          <span className="px-2.5 py-1 rounded-xl bg-cyan-500/20 text-cyan-300 text-xs font-extrabold border border-cyan-500/30">
             {totalResults}
           </span>
         </div>

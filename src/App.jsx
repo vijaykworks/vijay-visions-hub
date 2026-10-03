@@ -7,7 +7,7 @@ import AdminDashboard from './pages/AdminDashboard'
 
 function App() {
   return (
-    <div className="min-h-screen flex flex-col font-sans bg-[#07080c] text-white selection:bg-indigo-500/30 selection:text-indigo-200">
+    <div className="min-h-screen flex flex-col font-sans bg-[#06080e] text-white selection:bg-cyan-500/30 selection:text-cyan-200">
       <Navbar />
       <div className="flex-grow flex flex-col overflow-hidden">
         <Routes>

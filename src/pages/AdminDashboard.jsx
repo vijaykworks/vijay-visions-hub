@@ -71,7 +71,7 @@ export default function AdminDashboard() {
   }
 
   const handleProfileChange = (e) => {
-    setProfileData({ ...profileData, [e.target.value]: e.target.value })
+    setProfileData({ ...profileData, [e.target.name]: e.target.value })
   }
 
   const handleProfileImageUpload = async (e) => {
@@ -209,7 +209,7 @@ export default function AdminDashboard() {
   ].filter(Boolean).length
 
   return (
-    <div className="relative flex-1 min-h-screen bg-[#f4f7fb] text-slate-900 w-full overflow-y-auto pb-20">
+    <div className="relative flex-1 min-h-screen bg-[#06080e] text-white w-full overflow-y-auto pb-20">
       <BackgroundMesh />
 
       <main className="relative z-10 max-w-7xl mx-auto w-full px-4 sm:px-6 lg:px-8 py-8">
@@ -217,22 +217,22 @@ export default function AdminDashboard() {
         {/* Header Title */}
         <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-4 mb-8">
           <div>
-            <h1 className="text-3xl sm:text-4xl font-extrabold text-slate-900 tracking-tight font-heading">
+            <h1 className="text-3xl sm:text-4xl font-extrabold text-white tracking-tight font-heading">
               Admin Control Hub
             </h1>
-            <p className="text-slate-500 text-sm mt-1">
+            <p className="text-slate-400 text-sm mt-1">
               Manage affiliate inventory, profile information, and social links.
             </p>
           </div>
 
           {/* Navigation Tabs */}
-          <div className="flex items-center p-1.5 rounded-2xl bg-white border border-slate-200 shrink-0 shadow-sm">
+          <div className="flex items-center p-1.5 rounded-2xl bg-[#0d1220]/90 border border-cyan-500/25 shrink-0 shadow-sm">
             <button
               onClick={() => setActiveTab('inventory')}
               className={`px-5 py-2.5 rounded-xl text-xs sm:text-sm font-bold transition-all ${
                 activeTab === 'inventory'
-                  ? 'bg-orange-500 text-white shadow-md shadow-orange-500/25'
-                  : 'text-slate-600 hover:text-slate-900'
+                  ? 'bg-gradient-to-r from-cyan-500 to-blue-600 text-white shadow-md shadow-cyan-500/25'
+                  : 'text-slate-400 hover:text-white'
               }`}
             >
               Inventory Management
@@ -241,8 +241,8 @@ export default function AdminDashboard() {
               onClick={() => setActiveTab('profile')}
               className={`px-5 py-2.5 rounded-xl text-xs sm:text-sm font-bold transition-all ${
                 activeTab === 'profile'
-                  ? 'bg-orange-500 text-white shadow-md shadow-orange-500/25'
-                  : 'text-slate-600 hover:text-slate-900'
+                  ? 'bg-gradient-to-r from-cyan-500 to-blue-600 text-white shadow-md shadow-cyan-500/25'
+                  : 'text-slate-400 hover:text-white'
               }`}
             >
               Profile & Socials
@@ -252,21 +252,21 @@ export default function AdminDashboard() {
 
         {/* Dashboard Statistics Overview Cards */}
         <div className="grid grid-cols-1 sm:grid-cols-3 gap-4 mb-8">
-          <div className="p-5 rounded-3xl bg-white/80 border border-slate-200 backdrop-blur-xl flex items-center gap-4 shadow-sm">
-            <div className="w-12 h-12 rounded-2xl bg-orange-50 border border-orange-200 text-orange-600 flex items-center justify-center">
+          <div className="p-5 rounded-3xl bg-[#0c101c]/90 border border-cyan-500/20 backdrop-blur-xl flex items-center gap-4 shadow-sm">
+            <div className="w-12 h-12 rounded-2xl bg-cyan-500/10 border border-cyan-500/30 text-cyan-400 flex items-center justify-center">
               <svg className="w-6 h-6" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2">
                 <rect x="2" y="7" width="20" height="14" rx="2" ry="2"/>
                 <path d="M16 21V5a2 2 0 0 0-2-2h-4a2 2 0 0 0-2 2v16"/>
               </svg>
             </div>
             <div>
-              <p className="text-xs font-bold uppercase tracking-wider text-slate-500">Total Products</p>
-              <h3 className="text-2xl font-extrabold text-slate-900 font-heading">{products.length} Items</h3>
+              <p className="text-xs font-bold uppercase tracking-wider text-slate-400">Total Products</p>
+              <h3 className="text-2xl font-extrabold text-white font-heading">{products.length} Items</h3>
             </div>
           </div>
 
-          <div className="p-5 rounded-3xl bg-white/80 border border-slate-200 backdrop-blur-xl flex items-center gap-4 shadow-sm">
-            <div className="w-12 h-12 rounded-2xl bg-sky-50 border border-sky-200 text-sky-600 flex items-center justify-center">
+          <div className="p-5 rounded-3xl bg-[#0c101c]/90 border border-cyan-500/20 backdrop-blur-xl flex items-center gap-4 shadow-sm">
+            <div className="w-12 h-12 rounded-2xl bg-blue-500/10 border border-blue-500/30 text-blue-400 flex items-center justify-center">
               <svg className="w-6 h-6" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2">
                 <polygon points="12 2 2 7 12 12 22 7 12 2"/>
                 <polyline points="2 17 12 22 22 17"/>
@@ -274,13 +274,13 @@ export default function AdminDashboard() {
               </svg>
             </div>
             <div>
-              <p className="text-xs font-bold uppercase tracking-wider text-slate-500">Categories</p>
-              <h3 className="text-2xl font-extrabold text-slate-900 font-heading">{categoriesCount} Active</h3>
+              <p className="text-xs font-bold uppercase tracking-wider text-slate-400">Categories</p>
+              <h3 className="text-2xl font-extrabold text-white font-heading">{categoriesCount} Active</h3>
             </div>
           </div>
 
-          <div className="p-5 rounded-3xl bg-white/80 border border-slate-200 backdrop-blur-xl flex items-center gap-4 shadow-sm">
-            <div className="w-12 h-12 rounded-2xl bg-emerald-50 border border-emerald-200 text-emerald-600 flex items-center justify-center">
+          <div className="p-5 rounded-3xl bg-[#0c101c]/90 border border-cyan-500/20 backdrop-blur-xl flex items-center gap-4 shadow-sm">
+            <div className="w-12 h-12 rounded-2xl bg-indigo-500/10 border border-indigo-500/30 text-indigo-400 flex items-center justify-center">
               <svg className="w-6 h-6" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2">
                 <path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"/>
                 <polyline points="15 3 21 3 21 9"/>
@@ -288,8 +288,8 @@ export default function AdminDashboard() {
               </svg>
             </div>
             <div>
-              <p className="text-xs font-bold uppercase tracking-wider text-slate-500">Social Links</p>
-              <h3 className="text-2xl font-extrabold text-slate-900 font-heading">{activeSocialsCount} Linked</h3>
+              <p className="text-xs font-bold uppercase tracking-wider text-slate-400">Social Links</p>
+              <h3 className="text-2xl font-extrabold text-white font-heading">{activeSocialsCount} Linked</h3>
             </div>
           </div>
         </div>
@@ -299,37 +299,37 @@ export default function AdminDashboard() {
           <div className="grid grid-cols-1 lg:grid-cols-12 gap-8">
             {/* Left Form */}
             <div className="lg:col-span-5">
-              <div className="p-6 sm:p-8 rounded-3xl bg-white/80 border border-slate-200 backdrop-blur-xl shadow-lg">
-                <h2 className="text-xl font-extrabold text-slate-900 mb-6 font-heading flex items-center gap-2">
-                  <span className="w-2.5 h-2.5 rounded-full bg-orange-500" />
+              <div className="p-6 sm:p-8 rounded-3xl bg-[#0c101c]/90 border border-cyan-500/20 backdrop-blur-xl shadow-lg">
+                <h2 className="text-xl font-extrabold text-white mb-6 font-heading flex items-center gap-2">
+                  <span className="w-2.5 h-2.5 rounded-full bg-cyan-400" />
                   {editingId ? 'Edit Product' : 'Publish Product'}
                 </h2>
 
                 <form onSubmit={handleSubmit} className="space-y-4">
                   <div>
-                    <label className="block text-xs font-bold uppercase tracking-wider text-slate-500 mb-2">
+                    <label className="block text-xs font-bold uppercase tracking-wider text-slate-400 mb-2">
                       Product Image
                     </label>
                     {formData.image && (
-                      <div className="mb-3 p-2 rounded-2xl bg-slate-50 flex justify-center border border-slate-200">
+                      <div className="mb-3 p-2 rounded-2xl bg-white flex justify-center border border-white/20">
                         <img src={formData.image} alt="Preview" className="h-24 object-contain mix-blend-multiply" />
                       </div>
                     )}
 
-                    <div className="p-4 rounded-2xl bg-slate-50 border border-dashed border-slate-300 text-center">
+                    <div className="p-4 rounded-2xl bg-white/[0.04] border border-dashed border-cyan-500/30 text-center">
                       <input
                         type="file"
                         accept="image/*"
                         onChange={handleImageUpload}
                         disabled={uploading}
-                        className="block w-full text-xs text-slate-600 file:mr-3 file:py-2 file:px-4 file:rounded-xl file:border-0 file:text-xs file:font-bold file:bg-orange-500 file:text-white cursor-pointer"
+                        className="block w-full text-xs text-slate-400 file:mr-3 file:py-2 file:px-4 file:rounded-xl file:border-0 file:text-xs file:font-bold file:bg-cyan-500 file:text-white cursor-pointer"
                       />
-                      {uploading && <p className="text-xs text-orange-600 font-bold mt-2 animate-pulse">Uploading image...</p>}
+                      {uploading && <p className="text-xs text-cyan-400 font-bold mt-2 animate-pulse">Uploading image...</p>}
                     </div>
                   </div>
 
                   <div>
-                    <label className="block text-xs font-bold uppercase tracking-wider text-slate-500 mb-1">Title</label>
+                    <label className="block text-xs font-bold uppercase tracking-wider text-slate-400 mb-1">Title</label>
                     <input
                       type="text"
                       name="title"
@@ -337,12 +337,12 @@ export default function AdminDashboard() {
                       value={formData.title}
                       onChange={handleProductChange}
                       required
-                      className="w-full px-4 py-3 rounded-xl bg-slate-50 border border-slate-200 text-slate-900 placeholder-slate-400 focus:outline-none focus:border-orange-500 text-sm font-medium"
+                      className="w-full px-4 py-3 rounded-xl bg-white/[0.04] border border-cyan-500/25 text-white placeholder-slate-500 focus:outline-none focus:border-cyan-400 text-sm font-medium"
                     />
                   </div>
 
                   <div>
-                    <label className="block text-xs font-bold uppercase tracking-wider text-slate-500 mb-1">Category</label>
+                    <label className="block text-xs font-bold uppercase tracking-wider text-slate-400 mb-1">Category</label>
                     <input
                       type="text"
                       name="category"
@@ -351,7 +351,7 @@ export default function AdminDashboard() {
                       value={formData.category}
                       onChange={handleProductChange}
                       required
-                      className="w-full px-4 py-3 rounded-xl bg-slate-50 border border-slate-200 text-slate-900 placeholder-slate-400 focus:outline-none focus:border-orange-500 text-sm font-medium"
+                      className="w-full px-4 py-3 rounded-xl bg-white/[0.04] border border-cyan-500/25 text-white placeholder-slate-500 focus:outline-none focus:border-cyan-400 text-sm font-medium"
                     />
                     <datalist id="category-suggestions">
                       <option value="Headphones" />
@@ -362,7 +362,7 @@ export default function AdminDashboard() {
                   </div>
 
                   <div>
-                    <label className="block text-xs font-bold uppercase tracking-wider text-slate-500 mb-1">Affiliate Destination Link</label>
+                    <label className="block text-xs font-bold uppercase tracking-wider text-slate-400 mb-1">Affiliate Destination Link</label>
                     <input
                       type="url"
                       name="affiliateLink"
@@ -370,7 +370,7 @@ export default function AdminDashboard() {
                       value={formData.affiliateLink}
                       onChange={handleProductChange}
                       required
-                      className="w-full px-4 py-3 rounded-xl bg-slate-50 border border-slate-200 text-slate-900 placeholder-slate-400 focus:outline-none focus:border-orange-500 text-sm font-medium"
+                      className="w-full px-4 py-3 rounded-xl bg-white/[0.04] border border-cyan-500/25 text-white placeholder-slate-500 focus:outline-none focus:border-cyan-400 text-sm font-medium"
                     />
                   </div>
 
@@ -378,7 +378,7 @@ export default function AdminDashboard() {
                     <button
                       type="submit"
                       disabled={uploading || !formData.image}
-                      className="flex-1 py-3 px-5 rounded-xl bg-gradient-to-r from-orange-500 via-amber-500 to-orange-500 hover:from-orange-600 hover:to-amber-600 text-white font-extrabold text-sm transition-all shadow-md shadow-orange-500/25 disabled:opacity-40"
+                      className="flex-1 py-3 px-5 rounded-xl bg-gradient-to-r from-cyan-500 via-blue-600 to-indigo-600 hover:from-cyan-400 hover:to-blue-500 text-white font-extrabold text-sm transition-all shadow-md shadow-cyan-500/25 disabled:opacity-40"
                     >
                       {editingId ? 'Save Changes' : 'Publish Product'}
                     </button>
@@ -386,7 +386,7 @@ export default function AdminDashboard() {
                       <button
                         type="button"
                         onClick={cancelEdit}
-                        className="py-3 px-4 rounded-xl bg-slate-100 hover:bg-slate-200 text-slate-700 font-bold text-sm transition-all border border-slate-200"
+                        className="py-3 px-4 rounded-xl bg-white/10 hover:bg-white/20 text-slate-300 font-bold text-sm transition-all border border-white/10"
                       >
                         Cancel
                       </button>
@@ -398,9 +398,9 @@ export default function AdminDashboard() {
 
             {/* Right List */}
             <div className="lg:col-span-7">
-              <div className="p-6 sm:p-8 rounded-3xl bg-white/80 border border-slate-200 backdrop-blur-xl shadow-lg flex flex-col max-h-[750px]">
+              <div className="p-6 sm:p-8 rounded-3xl bg-[#0c101c]/90 border border-cyan-500/20 backdrop-blur-xl shadow-lg flex flex-col max-h-[750px]">
                 <div className="flex items-center justify-between gap-4 mb-6">
-                  <h2 className="text-xl font-extrabold text-slate-900 font-heading">
+                  <h2 className="text-xl font-extrabold text-white font-heading">
                     Current Inventory ({filteredProducts.length})
                   </h2>
 
@@ -409,7 +409,7 @@ export default function AdminDashboard() {
                     placeholder="Filter inventory..."
                     value={searchQuery}
                     onChange={(e) => setSearchQuery(e.target.value)}
-                    className="px-3.5 py-2 rounded-xl bg-slate-50 border border-slate-200 text-slate-900 placeholder-slate-400 text-xs focus:outline-none focus:border-orange-500 w-48"
+                    className="px-3.5 py-2 rounded-xl bg-white/[0.04] border border-cyan-500/25 text-white placeholder-slate-500 text-xs focus:outline-none focus:border-cyan-400 w-48"
                   />
                 </div>
 
@@ -422,15 +422,15 @@ export default function AdminDashboard() {
                         initial={{ opacity: 0, y: 10 }}
                         animate={{ opacity: 1, y: 0 }}
                         exit={{ opacity: 0, x: -20 }}
-                        className="flex items-center justify-between p-3.5 sm:p-4 rounded-2xl bg-white border border-slate-200 hover:border-orange-300 transition-all gap-4 shadow-sm group"
+                        className="flex items-center justify-between p-3.5 sm:p-4 rounded-2xl bg-white/[0.03] border border-cyan-500/20 hover:border-cyan-400/50 transition-all gap-4 shadow-sm group"
                       >
                         <div className="flex items-center gap-4 min-w-0">
-                          <div className="w-12 h-12 rounded-xl bg-slate-50 p-1 flex items-center justify-center shrink-0 border border-slate-100">
+                          <div className="w-12 h-12 rounded-xl bg-white p-1 flex items-center justify-center shrink-0 border border-white/20">
                             <img src={product.image} alt={product.title} className="max-h-full max-w-full object-contain mix-blend-multiply" />
                           </div>
                           <div className="min-w-0">
-                            <h4 className="font-bold text-slate-900 text-sm truncate">{product.title}</h4>
-                            <span className="text-[10px] uppercase font-bold text-orange-600 tracking-wider">
+                            <h4 className="font-bold text-white text-sm truncate">{product.title}</h4>
+                            <span className="text-[10px] uppercase font-bold text-cyan-400 tracking-wider">
                               {product.category}
                             </span>
                           </div>
@@ -439,13 +439,13 @@ export default function AdminDashboard() {
                         <div className="flex items-center gap-2 shrink-0">
                           <button
                             onClick={() => handleEditClick(product)}
-                            className="px-3.5 py-1.5 rounded-xl bg-slate-100 hover:bg-slate-200 text-slate-700 text-xs font-bold transition-all border border-slate-200 cursor-pointer"
+                            className="px-3.5 py-1.5 rounded-xl bg-white/10 hover:bg-white/20 text-slate-300 text-xs font-bold transition-all border border-white/10 cursor-pointer"
                           >
                             Edit
                           </button>
                           <button
                             onClick={() => handleDelete(product.id)}
-                            className="px-3.5 py-1.5 rounded-xl bg-rose-50 hover:bg-rose-100 text-rose-600 text-xs font-bold transition-all border border-rose-200 cursor-pointer"
+                            className="px-3.5 py-1.5 rounded-xl bg-rose-500/10 hover:bg-rose-500/20 text-rose-300 text-xs font-bold transition-all border border-rose-500/30 cursor-pointer"
                           >
                             Delete
                           </button>
@@ -468,21 +468,21 @@ export default function AdminDashboard() {
         {/* Tab 2: Profile */}
         {activeTab === 'profile' && (
           <div className="max-w-3xl mx-auto">
-            <div className="p-6 sm:p-8 rounded-3xl bg-white/80 border border-slate-200 backdrop-blur-xl shadow-lg">
-              <h2 className="text-xl font-extrabold text-slate-900 mb-6 font-heading flex items-center gap-2">
-                <span className="w-2.5 h-2.5 rounded-full bg-emerald-500" />
+            <div className="p-6 sm:p-8 rounded-3xl bg-[#0c101c]/90 border border-cyan-500/20 backdrop-blur-xl shadow-lg">
+              <h2 className="text-xl font-extrabold text-white mb-6 font-heading flex items-center gap-2">
+                <span className="w-2.5 h-2.5 rounded-full bg-cyan-400" />
                 Edit Profile & Social Links
               </h2>
 
               <form onSubmit={handleProfileSubmit} className="space-y-6">
-                <div className="flex items-center gap-6 p-4 rounded-2xl bg-slate-50 border border-slate-200">
+                <div className="flex items-center gap-6 p-4 rounded-2xl bg-white/[0.04] border border-cyan-500/20">
                   <img
                     src={profileData.imageUrl || 'https://images.unsplash.com/photo-1534528741775-53994a69daeb?auto=format&fit=crop&w=400&q=80'}
                     alt="Profile Avatar"
-                    className="w-16 h-16 rounded-full object-cover border-2 border-orange-500 shadow-md shrink-0"
+                    className="w-16 h-16 rounded-full object-cover border-2 border-cyan-400 shadow-md shrink-0"
                   />
                   <div className="flex-1">
-                    <label className="block text-xs font-bold uppercase tracking-wider text-slate-500 mb-1">
+                    <label className="block text-xs font-bold uppercase tracking-wider text-slate-400 mb-1">
                       Upload Avatar
                     </label>
                     <input
@@ -490,97 +490,97 @@ export default function AdminDashboard() {
                       accept="image/*"
                       onChange={handleProfileImageUpload}
                       disabled={profileUploading}
-                      className="block w-full text-xs text-slate-600 file:mr-3 file:py-2 file:px-4 file:rounded-xl file:border-0 file:text-xs file:font-bold file:bg-orange-500 file:text-white cursor-pointer"
+                      className="block w-full text-xs text-slate-400 file:mr-3 file:py-2 file:px-4 file:rounded-xl file:border-0 file:text-xs file:font-bold file:bg-cyan-500 file:text-white cursor-pointer"
                     />
-                    {profileUploading && <p className="text-xs text-orange-600 font-bold mt-1">Uploading avatar...</p>}
+                    {profileUploading && <p className="text-xs text-cyan-400 font-bold mt-1">Uploading avatar...</p>}
                   </div>
                 </div>
 
                 <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
                   <div>
-                    <label className="block text-xs font-bold uppercase tracking-wider text-slate-500 mb-1">Creator Name</label>
+                    <label className="block text-xs font-bold uppercase tracking-wider text-slate-400 mb-1">Creator Name</label>
                     <input
                       type="text"
                       name="name"
                       value={profileData.name}
                       onChange={handleProfileChange}
                       required
-                      className="w-full px-4 py-3 rounded-xl bg-slate-50 border border-slate-200 text-slate-900 placeholder-slate-400 focus:outline-none focus:border-orange-500 text-sm font-medium"
+                      className="w-full px-4 py-3 rounded-xl bg-white/[0.04] border border-cyan-500/25 text-white placeholder-slate-500 focus:outline-none focus:border-cyan-400 text-sm font-medium"
                     />
                   </div>
 
                   <div>
-                    <label className="block text-xs font-bold uppercase tracking-wider text-slate-500 mb-1">Contact Email</label>
+                    <label className="block text-xs font-bold uppercase tracking-wider text-slate-400 mb-1">Contact Email</label>
                     <input
                       type="email"
                       name="email"
                       value={profileData.email}
                       onChange={handleProfileChange}
-                      className="w-full px-4 py-3 rounded-xl bg-slate-50 border border-slate-200 text-slate-900 placeholder-slate-400 focus:outline-none focus:border-orange-500 text-sm font-medium"
+                      className="w-full px-4 py-3 rounded-xl bg-white/[0.04] border border-cyan-500/25 text-white placeholder-slate-500 focus:outline-none focus:border-cyan-400 text-sm font-medium"
                     />
                   </div>
                 </div>
 
                 <div>
-                  <label className="block text-xs font-bold uppercase tracking-wider text-slate-500 mb-1">Bio / Tagline</label>
+                  <label className="block text-xs font-bold uppercase tracking-wider text-slate-400 mb-1">Bio / Tagline</label>
                   <textarea
                     name="bio"
                     rows="3"
                     value={profileData.bio}
                     onChange={handleProfileChange}
                     required
-                    className="w-full px-4 py-3 rounded-xl bg-slate-50 border border-slate-200 text-slate-900 placeholder-slate-400 focus:outline-none focus:border-orange-500 text-sm font-medium resize-none"
+                    className="w-full px-4 py-3 rounded-xl bg-white/[0.04] border border-cyan-500/25 text-white placeholder-slate-500 focus:outline-none focus:border-cyan-400 text-sm font-medium resize-none"
                   />
                 </div>
 
-                <div className="pt-4 border-t border-slate-200 space-y-4">
-                  <h3 className="text-sm font-bold text-orange-600 uppercase tracking-wider">Social Platform URLs</h3>
+                <div className="pt-4 border-t border-white/10 space-y-4">
+                  <h3 className="text-sm font-bold text-cyan-400 uppercase tracking-wider">Social Platform URLs</h3>
 
                   <div>
-                    <label className="block text-xs font-semibold text-slate-500 mb-1">Instagram URL</label>
+                    <label className="block text-xs font-semibold text-slate-400 mb-1">Instagram URL</label>
                     <input
                       type="url"
                       name="instagram"
                       placeholder="https://instagram.com/username"
                       value={profileData.instagram}
                       onChange={handleProfileChange}
-                      className="w-full px-4 py-3 rounded-xl bg-slate-50 border border-slate-200 text-slate-900 placeholder-slate-400 focus:outline-none focus:border-orange-500 text-sm font-medium"
+                      className="w-full px-4 py-3 rounded-xl bg-white/[0.04] border border-cyan-500/25 text-white placeholder-slate-500 focus:outline-none focus:border-cyan-400 text-sm font-medium"
                     />
                   </div>
 
                   <div>
-                    <label className="block text-xs font-semibold text-slate-500 mb-1">YouTube URL</label>
+                    <label className="block text-xs font-semibold text-slate-400 mb-1">YouTube URL</label>
                     <input
                       type="url"
                       name="youtube"
                       placeholder="https://youtube.com/@channel"
                       value={profileData.youtube}
                       onChange={handleProfileChange}
-                      className="w-full px-4 py-3 rounded-xl bg-slate-50 border border-slate-200 text-slate-900 placeholder-slate-400 focus:outline-none focus:border-orange-500 text-sm font-medium"
+                      className="w-full px-4 py-3 rounded-xl bg-white/[0.04] border border-cyan-500/25 text-white placeholder-slate-500 focus:outline-none focus:border-cyan-400 text-sm font-medium"
                     />
                   </div>
 
                   <div>
-                    <label className="block text-xs font-semibold text-slate-500 mb-1">LinkedIn URL</label>
+                    <label className="block text-xs font-semibold text-slate-400 mb-1">LinkedIn URL</label>
                     <input
                       type="url"
                       name="linkedin"
                       placeholder="https://linkedin.com/in/username"
                       value={profileData.linkedin}
                       onChange={handleProfileChange}
-                      className="w-full px-4 py-3 rounded-xl bg-slate-50 border border-slate-200 text-slate-900 placeholder-slate-400 focus:outline-none focus:border-orange-500 text-sm font-medium"
+                      className="w-full px-4 py-3 rounded-xl bg-white/[0.04] border border-cyan-500/25 text-white placeholder-slate-500 focus:outline-none focus:border-cyan-400 text-sm font-medium"
                     />
                   </div>
 
                   <div>
-                    <label className="block text-xs font-semibold text-slate-500 mb-1">Facebook URL</label>
+                    <label className="block text-xs font-semibold text-slate-400 mb-1">Facebook URL</label>
                     <input
                       type="url"
                       name="facebook"
                       placeholder="https://facebook.com/username"
                       value={profileData.facebook}
                       onChange={handleProfileChange}
-                      className="w-full px-4 py-3 rounded-xl bg-slate-50 border border-slate-200 text-slate-900 placeholder-slate-400 focus:outline-none focus:border-orange-500 text-sm font-medium"
+                      className="w-full px-4 py-3 rounded-xl bg-white/[0.04] border border-cyan-500/25 text-white placeholder-slate-500 focus:outline-none focus:border-cyan-400 text-sm font-medium"
                     />
                   </div>
                 </div>
@@ -588,7 +588,7 @@ export default function AdminDashboard() {
                 <button
                   type="submit"
                   disabled={profileUploading}
-                  className="w-full py-4 px-6 rounded-2xl bg-gradient-to-r from-orange-500 via-amber-500 to-orange-500 hover:from-orange-600 hover:to-amber-600 text-white font-extrabold shadow-lg shadow-orange-500/25 transition-all transform active:scale-95 disabled:opacity-40"
+                  className="w-full py-4 px-6 rounded-2xl bg-gradient-to-r from-cyan-500 via-blue-600 to-indigo-600 hover:from-cyan-400 hover:to-blue-500 text-white font-extrabold shadow-lg shadow-cyan-500/25 transition-all transform active:scale-95 disabled:opacity-40"
                 >
                   Save Profile & Social Links
                 </button>

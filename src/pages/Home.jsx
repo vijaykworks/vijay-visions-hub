@@ -126,12 +126,12 @@ export default function Home() {
   })
 
   return (
-    <div className="relative flex-1 min-h-screen bg-gradient-to-b from-[#fffbeb] via-[#e0f2fe] to-[#bae6fd] text-slate-900 w-full overflow-y-auto">
+    <div className="relative flex-1 min-h-screen bg-[#06080e] text-white w-full overflow-y-auto">
       <BackgroundMesh />
 
       <main className="relative z-10 max-w-4xl mx-auto w-full px-3.5 sm:px-6 py-6 sm:py-8">
         {loading ? (
-          <div className="h-32 mb-6 rounded-3xl bg-white/70 animate-pulse border border-slate-200" />
+          <div className="h-32 mb-6 rounded-3xl bg-white/5 animate-pulse border border-white/10" />
         ) : (
           <HeroProfile profile={profile} />
         )}
@@ -154,14 +154,14 @@ export default function Home() {
             </div>
 
             {/* Layout Toggle Button */}
-            <div className="flex items-center p-1 rounded-2xl bg-white/80 border border-slate-200 shadow-xs shrink-0 mb-6">
+            <div className="flex items-center p-1 rounded-2xl bg-[#0d1220]/90 border border-cyan-500/25 shadow-xs shrink-0 mb-6">
               <button
                 onClick={() => setLayoutView('list')}
                 title="Minimal Linkup List View"
                 className={`p-2 rounded-xl text-xs font-bold transition-all ${
                   layoutView === 'list'
-                    ? 'bg-slate-900 text-white shadow-xs'
-                    : 'text-slate-500 hover:text-slate-900'
+                    ? 'bg-gradient-to-r from-cyan-500 to-blue-600 text-white shadow-xs'
+                    : 'text-slate-400 hover:text-white'
                 }`}
               >
                 <svg className="w-4 h-4" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5">
@@ -179,8 +179,8 @@ export default function Home() {
                 title="Grid View"
                 className={`p-2 rounded-xl text-xs font-bold transition-all ${
                   layoutView === 'grid'
-                    ? 'bg-slate-900 text-white shadow-xs'
-                    : 'text-slate-500 hover:text-slate-900'
+                    ? 'bg-gradient-to-r from-cyan-500 to-blue-600 text-white shadow-xs'
+                    : 'text-slate-400 hover:text-white'
                 }`}
               >
                 <svg className="w-4 h-4" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5">
@@ -222,16 +222,16 @@ export default function Home() {
               <motion.div
                 initial={{ opacity: 0, y: 10 }}
                 animate={{ opacity: 1, y: 0 }}
-                className="col-span-full py-12 px-4 text-center rounded-3xl bg-white/80 border border-slate-200 backdrop-blur-xl shadow-xs"
+                className="col-span-full py-12 px-4 text-center rounded-3xl bg-[#0c101c]/80 border border-cyan-500/20 backdrop-blur-xl shadow-xs"
               >
-                <div className="w-12 h-12 mx-auto mb-3 rounded-2xl bg-orange-50 flex items-center justify-center text-orange-600 border border-orange-200">
+                <div className="w-12 h-12 mx-auto mb-3 rounded-2xl bg-cyan-500/10 flex items-center justify-center text-cyan-400 border border-cyan-500/30">
                   <svg className="w-6 h-6" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2">
                     <circle cx="11" cy="11" r="8"/>
                     <line x1="21" y1="21" x2="16.65" y2="16.65"/>
                   </svg>
                 </div>
-                <h3 className="text-base font-bold text-slate-900 mb-1 font-heading">No gear found</h3>
-                <p className="text-slate-500 text-xs max-w-xs mx-auto">
+                <h3 className="text-base font-bold text-white mb-1 font-heading">No gear found</h3>
+                <p className="text-slate-400 text-xs max-w-xs mx-auto">
                   Try adjusting search terms or resetting filters.
                 </p>
                 <button
@@ -239,7 +239,7 @@ export default function Home() {
                     setActiveCategory('All')
                     setSearchQuery('')
                   }}
-                  className="mt-4 px-4 py-2 rounded-xl bg-orange-500 hover:bg-orange-600 text-white text-xs font-bold transition-all shadow-xs"
+                  className="mt-4 px-4 py-2 rounded-xl bg-gradient-to-r from-cyan-500 to-blue-600 text-white text-xs font-bold transition-all shadow-xs"
                 >
                   Reset Filters
                 </button>

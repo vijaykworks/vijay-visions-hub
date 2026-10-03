@@ -30,19 +30,19 @@ export default function Navbar() {
         title="Triple-click for Admin Access"
         className="group flex items-center gap-3 select-none focus:outline-none"
       >
-        <div className="relative w-10 h-10 rounded-full p-0.5 bg-gradient-to-tr from-sky-400 via-orange-400 to-amber-500 shadow-md shadow-orange-500/20 group-hover:scale-105 transition-transform duration-300">
+        <div className="relative w-10 h-10 rounded-full p-0.5 bg-gradient-to-tr from-cyan-400 via-blue-500 to-indigo-600 shadow-md shadow-cyan-500/30 group-hover:scale-105 transition-transform duration-300">
           <img
             src="/logo.png"
             alt="Vijay Visions Official Logo"
-            className="w-full h-full rounded-full object-cover bg-slate-950"
+            className="w-full h-full rounded-full object-cover bg-black"
           />
         </div>
 
         <div className="flex flex-col">
-          <span className="text-lg sm:text-xl font-extrabold text-slate-900 tracking-tight font-heading group-hover:text-orange-600 transition-colors">
-            Vijay <span className="text-transparent bg-clip-text bg-gradient-to-r from-orange-500 via-amber-500 to-sky-600">Visions</span>
+          <span className="text-lg sm:text-xl font-extrabold text-white tracking-tight font-heading group-hover:text-cyan-400 transition-colors">
+            Vijay <span className="text-transparent bg-clip-text bg-gradient-to-r from-cyan-400 via-sky-400 to-blue-500">Visions</span>
           </span>
-          <span className="text-[10px] uppercase font-bold tracking-widest text-slate-500 -mt-1 hidden sm:block">
+          <span className="text-[10px] uppercase font-bold tracking-widest text-cyan-400/80 -mt-1 hidden sm:block">
             Official Gear Hub
           </span>
         </div>
@@ -51,22 +51,22 @@ export default function Navbar() {
       {/* Right Navbar Controls */}
       <div className="flex items-center gap-3">
         {/* Status Live Pulse */}
-        <div className="hidden md:flex items-center gap-2 px-3 py-1.5 rounded-full bg-emerald-50 border border-emerald-200 text-emerald-700 text-xs font-bold">
-          <span className="w-2 h-2 rounded-full bg-emerald-500 animate-pulse" />
+        <div className="hidden md:flex items-center gap-2 px-3 py-1.5 rounded-full bg-cyan-500/10 border border-cyan-500/30 text-cyan-400 text-xs font-bold">
+          <span className="w-2 h-2 rounded-full bg-cyan-400 animate-pulse shadow-[0_0_8px_#00a2ff]" />
           <span>Curated Gear Live</span>
         </div>
 
         {isAdminPage ? (
           <Link
             to="/"
-            className="px-4 py-2 rounded-xl bg-slate-100 hover:bg-slate-200 text-slate-800 text-xs font-bold transition-all border border-slate-200 flex items-center gap-1.5"
+            className="px-4 py-2 rounded-xl bg-white/10 hover:bg-white/20 text-white text-xs font-bold transition-all border border-white/15 flex items-center gap-1.5"
           >
             <span>← Back to Store</span>
           </Link>
         ) : (
           <Link
             to="/"
-            className="px-4 py-2 rounded-xl bg-orange-500/10 hover:bg-orange-500/20 text-orange-600 text-xs font-bold transition-all border border-orange-200"
+            className="px-4 py-2 rounded-xl bg-cyan-500/10 hover:bg-cyan-500/20 text-cyan-300 text-xs font-bold transition-all border border-cyan-500/30 shadow-xs"
           >
             Home
           </Link>
