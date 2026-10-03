@@ -7,8 +7,8 @@ export default function BackgroundMesh() {
   useEffect(() => {
     const handleMouseMove = (e) => {
       setMousePos({
-        x: (e.clientX / window.innerWidth - 0.5) * 35,
-        y: (e.clientY / window.innerHeight - 0.5) * 35,
+        x: (e.clientX / window.innerWidth - 0.5) * 45,
+        y: (e.clientY / window.innerHeight - 0.5) * 45,
       })
     }
     window.addEventListener('mousemove', handleMouseMove)
@@ -16,54 +16,62 @@ export default function BackgroundMesh() {
   }, [])
 
   return (
-    <div className="fixed inset-0 pointer-events-none z-0 overflow-hidden bg-[#06080e]">
-      {/* Top Left Electric Cyan Orb */}
+    <div className="fixed inset-0 pointer-events-none z-0 overflow-hidden bg-[#040509]">
+      {/* Top Left Neon Cyan Aurora Orb */}
       <motion.div
         animate={{
-          x: [0, 40, -20, 0],
-          y: [0, -30, 20, 0],
-          scale: [1, 1.15, 0.9, 1],
-        }}
-        transition={{ duration: 18, repeat: Infinity, ease: 'easeInOut' }}
-        style={{ translateX: mousePos.x * 0.8, translateY: mousePos.y * 0.8 }}
-        className="absolute -top-40 -left-32 w-[650px] h-[650px] rounded-full bg-gradient-to-tr from-cyan-600/25 via-blue-600/30 to-indigo-900/40 blur-[140px]"
-      />
-
-      {/* Top Right Royal Blue / Cobalt Orb */}
-      <motion.div
-        animate={{
-          x: [0, -50, 30, 0],
-          y: [0, 40, -40, 0],
-          scale: [1, 0.85, 1.1, 1],
-        }}
-        transition={{ duration: 22, repeat: Infinity, ease: 'easeInOut' }}
-        style={{ translateX: mousePos.x * -0.6, translateY: mousePos.y * -0.6 }}
-        className="absolute top-1/4 -right-40 w-[700px] h-[700px] rounded-full bg-gradient-to-br from-sky-500/20 via-blue-700/25 to-blue-950/40 blur-[150px]"
-      />
-
-      {/* Bottom Center Cyber Teal/Cyan Orb */}
-      <motion.div
-        animate={{
-          x: [0, 30, -40, 0],
+          x: [0, 50, -30, 0],
           y: [0, -40, 30, 0],
-          scale: [1, 1.2, 0.95, 1],
+          scale: [1, 1.2, 0.9, 1],
         }}
-        transition={{ duration: 25, repeat: Infinity, ease: 'easeInOut' }}
-        style={{ translateX: mousePos.x * 0.5, translateY: mousePos.y * 0.5 }}
-        className="absolute -bottom-40 left-1/3 w-[650px] h-[650px] rounded-full bg-gradient-to-tr from-cyan-500/25 via-blue-600/20 to-indigo-900/35 blur-[140px]"
+        transition={{ duration: 16, repeat: Infinity, ease: 'easeInOut' }}
+        style={{ translateX: mousePos.x * 0.9, translateY: mousePos.y * 0.9 }}
+        className="absolute -top-44 -left-36 w-[700px] h-[700px] rounded-full bg-gradient-to-tr from-cyan-500/25 via-blue-600/30 to-purple-700/20 blur-[150px]"
       />
 
-      {/* Subtle Dot Grid Pattern */}
+      {/* Top Right Electric Violet / Fuchsia Orb */}
+      <motion.div
+        animate={{
+          x: [0, -60, 40, 0],
+          y: [0, 50, -50, 0],
+          scale: [1, 0.85, 1.15, 1],
+        }}
+        transition={{ duration: 20, repeat: Infinity, ease: 'easeInOut' }}
+        style={{ translateX: mousePos.x * -0.7, translateY: mousePos.y * -0.7 }}
+        className="absolute top-1/4 -right-44 w-[750px] h-[750px] rounded-full bg-gradient-to-br from-purple-600/25 via-pink-600/20 to-indigo-900/35 blur-[160px]"
+      />
+
+      {/* Bottom Center Solar Amber / Sunset Coral Orb */}
+      <motion.div
+        animate={{
+          x: [0, 40, -40, 0],
+          y: [0, -50, 40, 0],
+          scale: [1, 1.25, 0.9, 1],
+        }}
+        transition={{ duration: 24, repeat: Infinity, ease: 'easeInOut' }}
+        style={{ translateX: mousePos.x * 0.6, translateY: mousePos.y * 0.6 }}
+        className="absolute -bottom-48 left-1/3 w-[700px] h-[700px] rounded-full bg-gradient-to-tr from-amber-500/15 via-rose-600/20 to-cyan-600/25 blur-[150px]"
+      />
+
+      {/* Floating Glowing Particle Stars */}
+      <div className="absolute inset-0 opacity-40">
+        <div className="absolute top-1/6 left-1/5 w-1.5 h-1.5 rounded-full bg-cyan-400 shadow-[0_0_12px_#00d2ff] animate-ping" />
+        <div className="absolute top-1/3 right-1/4 w-2 h-2 rounded-full bg-purple-400 shadow-[0_0_15px_#a855f7] animate-pulse" />
+        <div className="absolute bottom-1/4 left-1/3 w-1.5 h-1.5 rounded-full bg-amber-400 shadow-[0_0_10px_#f59e0b] animate-ping" />
+        <div className="absolute top-2/3 right-1/5 w-2 h-2 rounded-full bg-blue-400 shadow-[0_0_15px_#3b82f6] animate-pulse" />
+      </div>
+
+      {/* Cyber Grid Pattern */}
       <div 
-        className="absolute inset-0 opacity-[0.06] mix-blend-overlay"
+        className="absolute inset-0 opacity-[0.05] mix-blend-overlay"
         style={{
-          backgroundImage: `radial-gradient(#00a2ff 1.2px, transparent 1.2px)`,
-          backgroundSize: '28px 28px'
+          backgroundImage: `linear-gradient(to right, #ffffff 1px, transparent 1px), linear-gradient(to bottom, #ffffff 1px, transparent 1px)`,
+          backgroundSize: '40px 40px'
         }}
       />
 
-      {/* Glass Tint Layer */}
-      <div className="absolute inset-0 bg-[#06080e]/60 backdrop-blur-[50px]" />
+      {/* Ambient Glass Vignette */}
+      <div className="absolute inset-0 bg-radial from-transparent via-[#040509]/40 to-[#040509]/90 backdrop-blur-[40px]" />
     </div>
   )
 }

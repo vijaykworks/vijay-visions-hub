@@ -3,6 +3,7 @@ import { motion, AnimatePresence } from 'framer-motion'
 import { supabase } from '../lib/supabase'
 import BackgroundMesh from '../components/BackgroundMesh'
 import HeroProfile from '../components/HeroProfile'
+import FeaturedSpotlight from '../components/FeaturedSpotlight'
 import CategoryPills from '../components/CategoryPills'
 import SearchBar from '../components/SearchBar'
 import ProductCard from '../components/ProductCard'
@@ -125,15 +126,29 @@ export default function Home() {
     return matchesCategory && matchesSearch
   })
 
+  // Spotlight Product (Top recommendation)
+  const spotlightProduct = products.length > 0 ? products[0] : null
+
   return (
-    <div className="relative flex-1 min-h-screen bg-[#06080e] text-white w-full overflow-y-auto">
+    <div className="relative flex-1 min-h-screen bg-[#040509] text-white w-full overflow-y-auto">
       <BackgroundMesh />
 
       <main className="relative z-10 max-w-4xl mx-auto w-full px-3.5 sm:px-6 py-6 sm:py-8">
         {loading ? (
           <div className="h-32 mb-6 rounded-3xl bg-white/5 animate-pulse border border-white/10" />
         ) : (
-          <HeroProfile profile={profile} />
+          <>
+            <HeroProfile profile={profile} totalProducts={products.length} />
+            
+            {/* Top Featured Spotlight Recommendation */}
+            {!searchQuery && activeCategory === 'All' && spotlightProduct && (
+              <FeaturedSpotlight
+                product={spotlightProduct}
+                onQuickView={(p) => setSelectedProduct(p)}
+                onCopyLink={handleCopyLink}
+              />
+            )}
+          </>
         )}
 
         {/* Controls: Search, Categories, and Layout Toggle */}
@@ -154,7 +169,7 @@ export default function Home() {
             </div>
 
             {/* Layout Toggle Button */}
-            <div className="flex items-center p-1 rounded-2xl bg-[#0d1220]/90 border border-cyan-500/25 shadow-xs shrink-0 mb-6">
+            <div className="flex items-center p-1 rounded-2xl bg-[#0c101c]/90 border border-cyan-500/25 shadow-xs shrink-0 mb-6">
               <button
                 onClick={() => setLayoutView('list')}
                 title="Minimal Linkup List View"
@@ -203,7 +218,7 @@ export default function Home() {
             className={
               layoutView === 'list'
                 ? 'max-w-xl mx-auto space-y-1 pb-24'
-                : 'grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 gap-3 sm:gap-4 pb-24'
+                : 'grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 gap-3.5 sm:gap-4 pb-24'
             }
           >
             <AnimatePresence mode="popLayout">
